@@ -6,10 +6,11 @@ on:
     branches: [ master ]
       
 jobs:
+   build:
    version:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
- 
+       
         steps:
           - uses: actions/checkout@v2
           with:
