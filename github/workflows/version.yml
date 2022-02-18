@@ -1,11 +1,10 @@
 name: Gestionnaire de version NPM
 on:
   push:
-    branche:
-      - master
+    branches: [ master ]
    pull request:
-    branche:
-      - master
+    branches: [ master ]
+      
 jobs:
   if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
