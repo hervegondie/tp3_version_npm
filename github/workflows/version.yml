@@ -3,10 +3,6 @@ on:
   push:
     branche:
       - master
-  pull request:
-    branche:
-      - master
-  
 jobs:
   if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
