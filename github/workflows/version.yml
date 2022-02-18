@@ -1,18 +1,19 @@
 name: Gestionnaire de version NPM
 on:
   push:
-    branche:
-      - master
+    branches: [ master ]
    pull request:
-    branche:
-      - master
+    branches: [ master ]
+      
 jobs:
-  if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+   build:
+   version:
+        runs-on: windows-latest
+ 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-        with:
-          token: ${{ secrets.NPM_VERSION_SECRET }}
+        with
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: git config --global user.name 'hervegondie '
@@ -21,3 +22,8 @@ jobs:
       - run: git push
       - run: npm ci
       - run: npm publish
+      env:
+         DEFAULT_BRANCH: master
+         token: ${{ secrets.NPM_VERSION_SECRET }}
+     
+      
