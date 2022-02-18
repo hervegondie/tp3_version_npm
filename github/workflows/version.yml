@@ -1,0 +1,26 @@
+name: NPM Version Manager
+on:
+  push:
+    branches: [ master ]
+   pull request:
+    branches: [ master ]
+      
+jobs:
+   version:
+        runs-on: windows-latest
+        if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+ 
+        steps:
+          - uses: actions/checkout@v2
+          with:
+          token: ${{ secrets.NPM_VERSION_SECRET }}
+      - run: git config --global user.name 'hervegondie '
+      - run: git config --global user.email 'gondie.herve@gmail.com'
+      - run: npm version patch -m "[RELEASE] %s"
+      - run: git push
+      
+     
+     
+         
+     
+      
