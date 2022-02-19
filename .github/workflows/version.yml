@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.NPN_VERSION_SECRET }}
       - run: git config --global user.name 'hervegondie'
       - run: git config --global user.email 'gondie.herve@gmail.com'
       - run: npm version patch -m "[RELEASE] %s"
