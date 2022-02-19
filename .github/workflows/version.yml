@@ -2,6 +2,8 @@ name: NPM Version Manager
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
      
 jobs:
   version:
@@ -15,3 +17,6 @@ jobs:
       - run: git config --global user.email 'gondie.herve@gmail.com'
       - run: npm version patch -m "[RELEASE] %s"
       - run: git push
+
+
+
