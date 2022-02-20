@@ -22,7 +22,7 @@ jobs:
       - run: git config --global user.name 'hervegondie'
       - run: git config --global user.email 'gondie.herve@gmail.com'
       - run: npm version patch -m "[RELEASE] %s"
-      - run: npm ci
+      - run: npm i
       - run: git push
       - run: npm publish
      
